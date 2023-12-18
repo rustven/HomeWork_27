@@ -36,17 +36,28 @@ public class CustomStringList {
         for (String textStr : this.list) {
             if (textStr.equals(checkList)) {
                 return true;
-            } else {
-
             }
         }return false;
     }
+    // 2. Метод check
+    // Данный метод получает в качестве аргумента массив из строк и проверяет,
+    // находятся ли строки из полученного списка в списке строк list.
+    // Если все находятся, метод возвращает true, в ином случае false.
     public boolean check(String []arrays){
-       return Arrays.equals(this.list, arrays);
+ //      return Arrays.equals(this.list, arrays);
+        for (int i = 0; i < this.list.length; i++) {
+            for (int j = 0; j < arrays.length; j++) {
+                if (this.list[i].equals(arrays[j])){
+                    break;
+                }
+
+            }return false;
+
+        }return true;
     }
 
     public String longestWord(){
-        String nonText = " ";
+        String nonText = "";
         for (String checkLangWord : this.list) {
             if (checkLangWord.length() > nonText.length()){
                 nonText = checkLangWord;
@@ -57,10 +68,14 @@ public class CustomStringList {
         String[] arrayText = new String[this.list.length + 1];
         for (int i = 0; i < this.list.length; i++) {
             arrayText[i] = this.list[i];
-            arrayText[arrayText.length -1] = newString;
         }
+        arrayText[arrayText.length -1] = newString;
         this.list = arrayText;
     }
+    //5. Метод addIfNotExists
+    //Данный метод получает в качестве аргумента строку и если данной строки нет в list создает новый массив в list,
+    // который содержит все старые элементы и новый. В ином случае выводит в терминал сообщение "Строка <значение строки> в массиве уже есть"
+    //Результат необходимо загрузить на github и ссылку прислать в качестве результата.
     public void addIfNotExists( String checkExistString){
         for (String simpleText : this.list) {
             if (simpleText.equals(checkExistString)){

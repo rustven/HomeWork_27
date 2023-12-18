@@ -53,8 +53,8 @@ public class CustomList {
         int[] newList = new int[this.list.length + 1];
         for (int i = 0; i < this.list.length; i++) {
             newList[i] = this.list[i];
-          newList[newList.length -1] = numb;
         }
+        newList[newList.length -1] = numb;
         this.list = newList;
     }
 }
