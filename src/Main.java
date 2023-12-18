@@ -14,8 +14,25 @@ public class Main {
 //        customList.add(-3);
 //        customList.add(-3);
 //        System.out.println(customList);
-        String [] text = {"Harry", "Bob", "Kane"};
-        CustomStringList list1 = new CustomStringList(text);
+//        String [] text = {"Harry", "Bob", "Kane"};
+//        CustomStringList list1 = new CustomStringList(text);
+ //       customList.remove(56);
+
+//        System.out.println(customList);
+//        customList.removeAll(22);
+//        System.out.println(customList);
+//        customList.removeAll2(34);
+//        System.out.println(customList);
+//        System.out.println(customList);
+//        customList.removeByIndex(3);
+//        System.out.println(customList);
+//        customList.removeByIndex(4);
+//        System.out.println(customList);
+        System.out.println(customList);
+        customList.removeAllByIndex(8);
+        System.out.println(customList);
+
+
 
     }
 }

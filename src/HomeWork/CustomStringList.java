@@ -26,7 +26,7 @@ import java.util.Arrays;
 
 public class CustomStringList {
 
- public String[] list;
+ private String[] list;
 
     public CustomStringList(String[] text) {
         this.list = text;
@@ -37,33 +37,34 @@ public class CustomStringList {
             if (textStr.equals(checkList)) {
                 return true;
             }
-        }return false;
+        }
+        return false;
     }
     // 2. Метод check
     // Данный метод получает в качестве аргумента массив из строк и проверяет,
     // находятся ли строки из полученного списка в списке строк list.
     // Если все находятся, метод возвращает true, в ином случае false.
-    public boolean check(String []arrays){
- //      return Arrays.equals(this.list, arrays);
-        for (int i = 0; i < this.list.length; i++) {
-            for (int j = 0; j < arrays.length; j++) {
-                if (this.list[i].equals(arrays[j])){
-                    break;
-                }
+    public boolean check(String[] arrays){
 
-            }return false;
-
-        }return true;
+        for (String toCheck : arrays) {
+            if (!this.check(toCheck)){
+                return false;
+            }
+        }
+        return true;
     }
 
     public String longestWord(){
-        String nonText = "";
+        String nonText = this.list[0];
+
         for (String checkLangWord : this.list) {
             if (checkLangWord.length() > nonText.length()){
                 nonText = checkLangWord;
             }
-        }return nonText;
+        }
+        return nonText;
     }
+
     public void add(String newString){
         String[] arrayText = new String[this.list.length + 1];
         for (int i = 0; i < this.list.length; i++) {
@@ -78,14 +79,11 @@ public class CustomStringList {
     //Результат необходимо загрузить на github и ссылку прислать в качестве результата.
     public void addIfNotExists( String checkExistString){
         for (String simpleText : this.list) {
-            if (simpleText.equals(checkExistString)){
+            if (check(checkExistString)){
                 System.out.println("Строка <значение строки> в массиве уже есть");
             }else {
-                String [] simpleArray = new String[this.list.length +1];
-                for (int i = 0; i < this.list.length; i++) {
-                    simpleArray[i] = this.list[i];
-                    simpleArray[simpleArray.length -1] = checkExistString;
-                }
+                add(checkExistString);
+
             }
         }
     }
